@@ -20,9 +20,9 @@ public class playerController : MonoBehaviour
         float hValue = Input.GetAxis("Horizontal");
 
         rb.linearVelocityX = hValue * speed;
-
-        //bool jumpPressed = Input.GetButtonDown("Jump");
-
-        //rb.linearVelocityY = jumpPressed (rb.gravityScale + jumpForce);
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
+        }
     }
 }
